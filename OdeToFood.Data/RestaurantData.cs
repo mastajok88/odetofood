@@ -14,5 +14,20 @@ namespace OdeToFood.Data
         {
             throw new System.NotImplementedException();
         }
+
+        public Restaurant GetById(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Restaurant Update(Restaurant updatedRestaurant)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public int Commit()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
