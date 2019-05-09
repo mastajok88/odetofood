@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace OdeToFood.Core
 {
-    public class Restaurant
+    public class Restaurant /*: IValidatableObject*/
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Location { get; set; }
-        public CuisineType Cuisine { get; set; }
+        [Required, StringLength(80)] public string Name { get; set; }
+        [Required, StringLength(255)] public string Location { get; set; }
+        public CuisineType Cuisine { get; set; } 
     }
 }
