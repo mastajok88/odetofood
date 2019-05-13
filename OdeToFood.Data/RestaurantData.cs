@@ -47,7 +47,7 @@ namespace OdeToFood.Data
         public Restaurant Delete(int restaurantId)
         {
             var restaurant = GetById(restaurantId);
-            _db.Remove(restaurantId);
+            _db.Remove(restaurant);
             return restaurant;
         }
 
