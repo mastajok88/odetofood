@@ -56,11 +56,18 @@ namespace OdeToFood
                 app.UseHsts();
             }
 
+            //app.Use(Test);
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseNodeModules(env);
             app.UseCookiePolicy();
             app.UseMvc();
+        }
+
+        private RequestDelegate Test(RequestDelegate rq)
+        {
+            return async context => { await context.Response.WriteAsync("Hello World"); };
         }
     }
 }

@@ -2,18 +2,38 @@
 @model OdeToFood.Pages.Restaurants.ClientRestaurantsModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "ClientRestaurants";
 }
 
-<!DOCTYPE html>
+<h2>Client Restaurants</h2>
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
-</div>
-</body>
-</html>
+<table id="restaurants"></table>
+
+@section Scripts
+{
+    <script>
+        $(function() {
+
+            var cuisines = ["Unknown", "Mexican", "Italian", "Indian"];
+
+            $.get("/api/restaurants")
+                .then(function(response) {
+                    $("#restaurants").dataTable({
+                        data: response,
+                        columns: [
+                            { "data": "name" },
+                            { "data": "location" },
+                            {
+                                "data": "cuisine",
+                                "render": function(data) {
+                                    return cuisines[data];
+                                }
+                            }
+                        ]
+                    });
+                });
+        })
+
+    </script>
+
+}
