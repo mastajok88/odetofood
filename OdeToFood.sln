@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28917.181
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood", "OdeToFood\OdeToFood.csproj", "{D1ECAC87-4327-47A8-B80F-22D89CA2319B}"
 EndProject
@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood.Core", "OdeToFood
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood.Data", "OdeToFood.Data\OdeToFood.Data.csproj", "{5E461D49-EEE5-4F5B-B05C-C9FF404BA702}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdeToFood.IDP", "OdeToFood.IDP\OdeToFood.IDP.csproj", "{F1458889-182C-4D95-89B4-323C12B97FEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood.IDP", "OdeToFood.IDP\OdeToFood.IDP.csproj", "{F1458889-182C-4D95-89B4-323C12B97FEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdeToFood.Api", "OdeToFood.Api\OdeToFood.Api.csproj", "{7A91916D-6783-48B3-930A-3416D3735043}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F1458889-182C-4D95-89B4-323C12B97FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1458889-182C-4D95-89B4-323C12B97FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1458889-182C-4D95-89B4-323C12B97FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A91916D-6783-48B3-930A-3416D3735043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A91916D-6783-48B3-930A-3416D3735043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A91916D-6783-48B3-930A-3416D3735043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A91916D-6783-48B3-930A-3416D3735043}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

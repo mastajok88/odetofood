@@ -20,6 +20,7 @@ namespace OdeToFood.IDP
                .AddDeveloperSigningCredential()
                .AddTestUsers(Config.GetUsers())
                .AddInMemoryIdentityResources(Config.GetIdentityResource())
+               .AddInMemoryApiResources(Config.GetApiResources())
                .AddInMemoryClients(Config.GetClients());
 
             services.AddMvc();

@@ -13,6 +13,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using OdeToFood.Services;
 
 namespace OdeToFood
 {
@@ -32,6 +34,10 @@ namespace OdeToFood
                 options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
             services.AddScoped<IRestaurantData, RestaurantData>();
+
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddScoped<IOdeToFoodHttpClient, OdeToFoodHttpClient>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -65,6 +71,7 @@ namespace OdeToFood
             options.Scope.Add("profile");
             options.Scope.Add("address");
             options.Scope.Add("roles");
+            options.Scope.Add("odetofoodapi");
             options.GetClaimsFromUserInfoEndpoint = true;
             options.Events = new OpenIdConnectEvents()
             {
@@ -112,6 +119,8 @@ namespace OdeToFood
             app.UseStaticFiles();
             app.UseNodeModules(env);
             app.UseCookiePolicy();
+            
+
             app.UseMvc();
         }
 
