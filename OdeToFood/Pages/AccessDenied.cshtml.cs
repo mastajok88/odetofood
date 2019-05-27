@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace OdeToFood.Pages
 {
-    [Authorize(Roles = "FreeUser")]
-    public class PrivacyModel : PageModel
+    public class AccessDeniedModel : PageModel
     {
         public void OnGet()
         {
+           
         }
     }
 }

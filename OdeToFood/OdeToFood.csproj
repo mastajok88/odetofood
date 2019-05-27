@@ -7,7 +7,10 @@
 
 
   <ItemGroup>
+    <PackageReference Include="IdentityModel" Version="3.10.10" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
     <PackageReference Include="OdeToCode.UseNodeModules" Version="1.0.6" />
@@ -19,11 +22,11 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="ComputeFilesToPublish">
-    <Exec Command="npm install"/>
+    <Exec Command="npm install" />
   </Target>
   
   <ItemGroup>
-    <Content Include="node_modules/**" CopyToPublishDirectory="PreserveNewest"/>
+    <Content Include="node_modules/**" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>

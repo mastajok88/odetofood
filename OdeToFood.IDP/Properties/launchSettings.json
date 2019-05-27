@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:44326/",
-      "sslPort": 44326
+      "applicationUrl": "https://localhost:44337/",
+      "sslPort": 44337
     }
   },
   "profiles": {
@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "OdeToFood": {
+    "OdeToFood.IDP": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

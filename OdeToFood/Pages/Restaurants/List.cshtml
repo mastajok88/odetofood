@@ -4,12 +4,18 @@
     ViewData["Title"] = "List";
 }
 
+
 <h1>Restaurants</h1>
+
+<div class="container">
+    <div class="text text-info">@Model.Address</div>
+</div>
+
 
 <form method="get">
     <div class="form-group">
         <div class="input-group">
-            <input type="search" class="form-control" asp-for="SearchTerm"/>
+            <input type="search" class="form-control" asp-for="SearchTerm" />
             <span class="input-group-btn">
                 <button class="btn btn-default">
                     <i class="glyphicon glyphicon-search"></i>
@@ -21,7 +27,7 @@
 
 @foreach (var restaurant in Model.Restaurants)
 {
-    <partial name="_Summary" model="restaurant"/>
+    <partial name="_Summary" model="restaurant" />
 }
 
 <a asp-page=".\Edit" class="btn btn-primary">Add New</a>
