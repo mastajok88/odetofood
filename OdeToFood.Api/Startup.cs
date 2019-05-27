@@ -39,6 +39,18 @@ namespace OdeToFood.Api
             });
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddAuthorization(authorizationOptions =>
+            {
+                authorizationOptions.AddPolicy("CanRead", policyBuilder =>
+                {
+                    policyBuilder.RequireAuthenticatedUser();
+                    policyBuilder.RequireClaim("country", "Ukraine");
+                    policyBuilder.RequireClaim("subscriptionlevel", "FreeUser");
+                    //policyBuilder.RequireRole("FreeUser");
+
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,7 +71,10 @@ namespace OdeToFood.Api
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
+           
             app.UseMvc();
+
+
         }
     }
 }

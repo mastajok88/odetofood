@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace OdeToFood.Api.Controllers
 {
-    [ApiController, Route("api/[controller]"), Authorize(Roles = "FreeUser")]
+    [ApiController, Route("api/[controller]"), /*Authorize(Roles = "FreeUser")*/ Authorize(Policy = "CanRead")]
     public class ValuesController : ControllerBase
     {
         public ValuesController()

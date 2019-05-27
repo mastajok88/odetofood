@@ -72,6 +72,8 @@ namespace OdeToFood
             options.Scope.Add("address");
             options.Scope.Add("roles");
             options.Scope.Add("odetofoodapi");
+            options.Scope.Add("subscriptionlevel");
+            options.Scope.Add("country");
             options.GetClaimsFromUserInfoEndpoint = true;
             options.Events = new OpenIdConnectEvents()
             {
@@ -96,6 +98,18 @@ namespace OdeToFood
         });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddAuthorization(authorizationOptions =>
+            {
+                authorizationOptions.AddPolicy("CanRead", policyBuilder =>
+                {
+                    policyBuilder.RequireAuthenticatedUser();
+                    policyBuilder.RequireClaim("country", "Ukraine");
+                    policyBuilder.RequireClaim("subscriptionlevel", "FreeUser");
+                    //policyBuilder.RequireRole("FreeUser");
+
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -119,7 +133,7 @@ namespace OdeToFood
             app.UseStaticFiles();
             app.UseNodeModules(env);
             app.UseCookiePolicy();
-            
+
 
             app.UseMvc();
         }
