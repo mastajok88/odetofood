@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
@@ -37,6 +38,17 @@ namespace OdeToFood.Services
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
             return _httpClient;
+        }
+
+        public async Task<string> RenewTokens()
+        {
+            var currentContext = _httpContextAccessor.HttpContext;
+
+            var discovery = await _httpClient.GetDiscoveryDocumentAsync("https://localhost:44326/");
+
+
+
+
         }
     }
 }

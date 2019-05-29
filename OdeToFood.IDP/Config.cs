@@ -65,6 +65,17 @@ namespace OdeToFood.IDP
             {
                 new Client()
                 {
+                    //IdentityTokenLifetime = 300,
+                    //AuthorizationCodeLifetime = 300,
+                    //AccessTokenLifetime = 120,
+                    
+                    //AbsoluteRefreshTokenLifetime = 
+
+                    //RefreshTokenExpiration = TokenExpiration.Sliding,
+                    //SlidingRefreshTokenLifetime = ...
+
+                    AllowOfflineAccess = true,
+
                     ClientId = "odetofoodclient",
                     ClientName = "OdeToFood",
                     ClientSecrets = {
@@ -89,7 +100,8 @@ namespace OdeToFood.IDP
                         "roles",
                         "odetofoodapi",
                         "country",
-                        "subscriptionlevel"
+                        "subscriptionlevel",
+                        IdentityServerConstants.StandardScopes.OfflineAccess
                     },
                     //AlwaysIncludeUserClaimsInIdToken = true
                 }

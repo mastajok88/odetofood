@@ -74,6 +74,7 @@ namespace OdeToFood
             options.Scope.Add("odetofoodapi");
             options.Scope.Add("subscriptionlevel");
             options.Scope.Add("country");
+            options.Scope.Add("offline_access");
             options.GetClaimsFromUserInfoEndpoint = true;
             options.Events = new OpenIdConnectEvents()
             {
