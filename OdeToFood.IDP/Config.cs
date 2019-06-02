@@ -73,9 +73,8 @@ namespace OdeToFood.IDP
 
                     //RefreshTokenExpiration = TokenExpiration.Sliding,
                     //SlidingRefreshTokenLifetime = ...
-
                     AllowOfflineAccess = true,
-
+                    AccessTokenType = AccessTokenType.Reference,
                     ClientId = "odetofoodclient",
                     ClientName = "OdeToFood",
                     ClientSecrets = {
@@ -109,11 +108,12 @@ namespace OdeToFood.IDP
         }
         public static IEnumerable<ApiResource> GetApiResources()
         {
-            return new List<ApiResource>()
-            {
-                new ApiResource("odetofoodapi", "OdeToFood API", new List<string>(){"role"})
-            };
+            var odetofoodapi = new ApiResource(
+                "odetofoodapi", 
+                "OdeToFood API", 
+                new List<string> { "roles", "country", "subscriptionlevel" });
+            odetofoodapi.ApiSecrets = new List<Secret>() { new Secret() { Value = "secret".Sha256() } };
+            return new List<ApiResource>() { odetofoodapi };
         }
-
     }
 }

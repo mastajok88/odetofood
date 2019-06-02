@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using IdentityServer4.AccessTokenValidation;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace OdeToFood.Api
 {
@@ -31,13 +23,15 @@ namespace OdeToFood.Api
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(o =>
-            {
-                o.Authority = "https://localhost:44337";
-                o.Audience = "odetofoodapi";
-                o.RequireHttpsMetadata = true;
-            });
-            
+            }).
+              AddIdentityServerAuthentication(o =>
+                {
+                    o.RequireHttpsMetadata = true;
+                    o.ApiSecret = "secret";
+                    o.ApiName = "odetofoodapi";
+                    o.Authority = "https://localhost:44337";
+
+                });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddAuthorization(authorizationOptions =>
@@ -71,7 +65,7 @@ namespace OdeToFood.Api
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
-           
+
             app.UseMvc();
 
 

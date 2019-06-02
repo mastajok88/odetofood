@@ -40,15 +40,5 @@ namespace OdeToFood.Services
             return _httpClient;
         }
 
-        public async Task<string> RenewTokens()
-        {
-            var currentContext = _httpContextAccessor.HttpContext;
-
-            var discovery = await _httpClient.GetDiscoveryDocumentAsync("https://localhost:44326/");
-
-
-
-
-        }
     }
 }
